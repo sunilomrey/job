@@ -1,0 +1,621 @@
+/*
+ * BESPOKE SERVICE - Atlan66 for Superglamourous
+ * copyright 2012 Atlan66 - ALL RIGHTS RESERVED - info@atlan66.it
+ * v. 1.0 - may 2012
+ */
+
+#myspace {
+	width:900px;
+	height:540px; /*OLD 546*/
+	position:relative;
+	margin:0;
+background-color:white;	
+}
+
+#speaker {
+	background-color:#1B110C;
+	/*opacity:0.9;*/
+	width:2px;
+	height:2px;
+	position:absolute;
+	top: 26px;
+	left: 390px;
+	border:1px solid #9D815B;
+	display:none;
+	z-index: 10;
+	/*background: url('../imgs/bespoke/BKG_speaker.jpg') center no-repeat;*/
+	text-align: center;
+	font-size: 12px;
+	color:#9D815B;
+}
+#bespoke_policy {
+	background-color:#1B110C;
+	width:740px;
+	height:472px;
+	position:absolute;
+	padding:20px;
+	top: 26px;
+	left: 60px;
+	border:1px solid #9D815B;
+	z-index: 10;
+	text-align: justify;
+	font-size: 12px;
+	color:#9D815B;
+	display:none;
+}
+#speaker h1, #bespoke_policy h1 {font-size:24px;}
+
+
+
+#pallini {
+	position:absolute;
+	width:900px;
+	height:20px;
+	margin:0;
+	z-index: 2;
+}
+#pallini ul {
+    list-style:none;
+    margin:0;
+    padding:0; 
+	color:#FFFFFF; 
+}
+#pallini ul li {
+	float:left;
+	height: 10px;
+	width: 10px;
+	margin: 5px 10px;
+	background: url('../imgs/bespoke/pallino_unactive.png') center no-repeat;
+}
+#pallini ul li.attivo {
+	color:#ff0000;
+}
+
+#worldwide {
+	position:absolute;
+	bottom:136px;
+	right:0px;
+	color:#FFFFFF;
+	width: 84px;
+	height: 84px;
+	text-align:center;
+	background: url('../imgs/bespoke/delivery.png') center no-repeat;
+	z-index: 9;
+}
+
+
+
+#contenitor {
+	width:900px;
+	height:520px;
+	position:relative;
+	margin:0;
+	padding-top:20px;
+	overflow: hidden;
+	/*border:2px solid #FF0000;*/
+}
+#contenitor ul {
+    position:relative;
+    left:0;
+    top:0;
+    list-style:none;
+    margin:0;
+    padding:0;  
+}
+#contenitor ul li {
+	position:absolute;
+	top:0;
+	color:#FFFFFF;
+	width: 900px;
+	height: 520px;
+}
+/*#step1 {
+	left:0;
+}*/
+#step1,#step2 {
+	left:0;
+}
+#step3, #step4, #step5, #step6 {
+	left:901px;
+}
+#contenitor ul li div {
+	position:relative;
+	width:900px;
+	height: 520px;
+	margin:0 auto;
+	/*background-color: #050540;*/
+}
+#contenitor ul li div.fondo {
+	position:relative;
+	height:126px;
+	width:900px;
+	position:absolute;
+	bottom:0;
+	text-align:center;
+	/*background-color:#50506D;
+	border:2px solid #9D815B;*/
+}
+#contenitor ul li div.fondo {font-size:14px;margin:0px auto;color:#9D815B;}
+#contenitor ul li div.fondo a {color:#9D815B;}
+#contenitor ul li div.fondo a:hover {color:#ffffff;}
+
+#fondo2 div a {
+	color:#FFFFFF;
+	border:2px solid #9D815B;
+	/*background-color:#000000;*/
+	width: 30px;
+	height: 30px;
+	text-align:center;
+	/*-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;*/
+	margin:56px 1px 6px 1px;
+	padding:5px 7px;
+	font-size:16px;
+}
+
+.fondo_left {
+	position:absolute; 
+	top:0; 
+	left:0; 
+	width:191px; 
+	height:126px; 
+	border-right:2px solid #9D815B; 
+	padding-right:9px
+}
+
+.fondo_right {
+	position:absolute; 
+	top:0; 
+	left:209px; 
+	width:649px; 
+	height:126px; 
+	border-right:2px solid #9D815B;
+}
+
+
+
+#avanti {
+	position:absolute;
+	width: 38px;
+	height:106px; /*ORIG 126*/
+	padding-top:20px;
+	bottom:0;
+	right:0;
+	font-size:14px;
+	text-align:right;
+	color:#1B110C;
+	z-index: 0;
+	font-size:70px;
+	background: url('../imgs/bespoke/arrow_gold.png') center right no-repeat #1B110C;
+	background-color:white;
+}
+#avanti a:link, a:visited, a:active { color:#9d815b; text-decoration: none }
+#avanti a:hover { color:#FFFFFF; }
+#avanti_ghost {
+	/*background: url('../imgs/bespoke/arrow_ghost.png') center right no-repeat #1B110C;*/
+	background-color:#1B110C;
+	position:absolute;
+	width: 38px;
+	height:106px; /*ORIG 126*/
+	padding-top:20px;
+	bottom:0;
+	right:0;
+	font-size:14px;
+	text-align:right;
+	color:#363636;
+	z-index: 1;
+	font-size:70px;
+	background-color:white;
+}
+
+
+
+/*
+ *INIZIO ELEMENTI DI SCORRIMENTO (dest)
+ */
+
+#your_shoes{
+	position:absolute;
+	top:70px;
+	left:0;
+	color:#9D815B;
+	width: 170px;
+	padding-top:6px;
+	border-top:2px solid #9D815B;
+	display:none;	
+}
+
+#your_shoes_right{
+	position:absolute;
+	top:70px;
+	right:0;
+	color:#9D815B;
+	width: 170px;
+	padding-top:6px;
+	border-top:2px solid #9D815B;
+	display:none;
+}
+
+#dest1 {
+	position:absolute;
+	top:20px;
+	left:0;
+	color:#FFFFFF;
+	background: url('../imgs/bespoke/base_start_big.png');
+	width: 900px;
+	height: 390px;
+	z-index: 2;
+}
+#dest1_costo {
+	position:absolute;
+	top:30px;
+	right:0;
+	color:#FFFFFF;
+	width: 80px;
+	height: 26px;
+	text-align:center;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	z-index: 3;
+}
+#dest1_costo p {font-size:16px;margin:3px auto;}
+#dest1_descrizione {
+	position:absolute;
+	top:30px;
+	right:90px;
+	color:#FFFFFF;
+	/*width: 100px;*/
+	height: 14px;
+	text-align:center;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	z-index: 5;
+	padding:8px;
+}
+
+#dest2 {
+	position:absolute;
+	top:220px;
+	left:0;
+	color:#9D815B;
+	width: 30px;
+	height: 30px;
+	text-align:center;
+	/*-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;*/
+	z-index: 3;
+}
+#dest2 p {font-size:16px;margin:5px auto;}
+#dest2_descrizione {
+	position:absolute;
+	top:220px;
+	left:40px;
+	color:#FFFFFF;
+	/*width: 100px;*/
+	height: 14px;
+	text-align:center;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	z-index: 5;
+	padding:8px;
+}
+
+
+#dest3 {
+	position:absolute;
+	top:20px;
+	left:0;
+	color:#FFFFFF;
+	width: 900px;
+	height: 390px;
+	opacity:0.5;
+	z-index: 4;
+}
+
+#dest3_selezioni{
+	position:absolute;
+	top:100px;
+	left:0;
+	color:#FFFFFF;
+	width: 200px;
+	height: 30px;
+}
+#dest3_materiale {
+	position:absolute;
+	top:0;
+	left:40px;
+	color:#FFFFFF;
+	/*width: 100px;*/
+	height: 14px;
+	text-align:center;
+	/*-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;*/
+	z-index: 5;
+	padding:8px;
+}
+#dest3_colore {
+	position:absolute;
+	top:0;
+	left:0;
+	color:#FFFFFF;
+	width: 30px;
+	height: 30px;
+	max-height:30px;
+	overflow:hidden;
+	text-align:center;
+	/*-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;*/
+	z-index: 5;
+	/*padding:8px;*/
+}
+#dest3_materiale p {margin:8px;}
+
+
+#dest4 { /*LANDING PER TRIMMING*/
+	position:absolute;
+	top:20px;
+	left:0;
+	color:#FFFFFF;
+	width: 900px;
+	height: 390px;
+	z-index: 5;
+}
+
+#dest4_bis { /*LANDING PER TASSELS*/
+	position:absolute;
+	top:20px;
+	left:0;
+	color:#FFFFFF;
+	width: 900px;
+	height: 390px;
+	z-index: 6;
+}
+
+#dest4_left { /*LANDING FOR MONOGRAM LEFT*/
+	position:absolute;
+	left: 480px;
+	top: 80px;
+	width:150px;
+	height:120px;
+	z-index: 7;
+}
+#dest4_right{ /*LANDING FOR MONOGRAM RIGHT*/
+	position:absolute;
+	left: 480px;
+	top: 240px;
+	width:150px;
+	height:120px;
+	z-index: 7;
+}
+
+#dest4_selezioni{
+	position:absolute;
+	top:140px;
+	left:0;
+	color:#FFFFFF;
+	width: 200px;
+	height: 30px;
+}
+#dest4_trimmings, #dest4_tassels_left {
+	position:absolute;
+	top:0px;
+	left:40px;
+	color:#FFFFFF;
+	/*width: 100px;*/
+	height: 14px;
+	text-align:center;
+	/*-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;*/
+	z-index: 5;
+	padding:8px;
+}
+#dest4_trimmings_color, #dest4_tassels_right {
+	position:absolute;
+	top:0px;
+	left:0;
+	color:#FFFFFF;
+	width: 30px;
+	height: 30px;
+	max-height:30px;
+	overflow:hidden;
+	text-align:center;
+	/*-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;*/
+	z-index: 5;
+	/*padding:8px;*/
+}
+#dest4_tassels{
+	position:absolute;
+	top:180px;
+	left:0;
+	color:#FFFFFF;
+	width: 200px;
+	height: 30px;
+}
+#dest4_monogram {
+	padding:8px 0 8px 0;
+	position:absolute;
+	top: 100px;
+	right:0;
+	width:200px;
+	height:220px;
+	text-align:center;
+	border:2px solid #9D815B;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	/*background-color:#000000;*/
+	color:#ffffff;
+	z-index: 7;
+	display:none;
+}
+#dest4_monogram form fieldset {
+	border:0;
+}
+#dest4_monogram_description {
+	position:absolute;
+	top:260px;
+	left:0;
+	color:#FFFFFF;
+	width: 200px;
+	height: 30px;
+}
+#dest4_monogram_description_left {
+	position:absolute;
+	top:0;
+	left:40px;
+	color:#FFFFFF;
+	/*width: 100px;*/
+	height: 14px;
+	text-align:center;
+	/*-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;*/
+	z-index: 5;
+	padding:8px;
+}
+#dest4_monogram_description_right {
+	position:absolute;
+	top:0;
+	left:0;
+	color:#FFFFFF;
+	width: 30px;
+	height: 30px;
+	max-height:30px;
+	overflow:hidden;
+	text-align:center;
+	/*-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;*/
+	z-index: 5;
+	/*padding:8px;*/
+}
+
+#upper_material{}
+#upper_material img {margin:3px;}
+#material_color img {margin:0;}
+
+#contenitor ul li div#shoehorn_image {
+	width:191px;
+	height:83px;
+	background:url('../imgs/bespoke/shoehorn_BIG.jpg') top center no-repeat;
+	background-size: 100%;
+	margin:6px 0 0 0;
+	text-align:right;
+	z-index:11;
+}
+
+#contenitor ul li div#gift_image {
+	width:191px;
+	height:83px;
+	background:url('../imgs/bespoke/deluxe_BIG.jpg') top center no-repeat;
+	background-size: 100%;
+	margin:6px 0 0 0;
+	text-align:right;
+	z-index:11;
+}
+
+#upper_forma h1, #upper_deluxe h1 {font-size:14px}
+
+/*
+ *FINE ELEMENTI DI SCORRIMENTO (dest)
+ */
+
+
+
+
+#measurement_chart {
+	/*opacity:0.9;*/
+	width:608px;
+	height:515px;
+	position:absolute;
+	top: 30px;
+	left: 147px;
+	display:none;
+	z-index:10;
+	background: url('../imgs/bespoke/official_sizing_chart.jpg') center no-repeat;
+	text-align: right;
+	font-size:24px;
+	font-weight:bold;
+	color:#FF0000;
+}
+#measurement_chart h1 {font-size:24px;}
+
+#restart {
+	position:absolute;
+	top:30px;
+	left:0;
+	color:#000000;
+	/*border:2px solid #9D815B;*/
+	background-color:#9D815B;
+	border-radius: 20px 20px 20px 20px;
+    height: 14px;
+    padding: 8px;
+	font-size:12px;
+	font-weight:bold;
+	z-index:9;
+}
+#launch_video {
+	position:absolute;
+	top:30px;
+	left:100px;
+	color:#000000;
+	/*border:2px solid #9D815B;*/
+	background-color:#9D815B;
+	border-radius: 20px 20px 20px 20px;
+    height: 14px;
+    padding: 8px;
+	font-size:12px;
+	font-weight:bold;
+	z-index:9;
+}
+#video {
+	background-color:#1B110C;
+	/*opacity:0.9;*/
+	width:900px;
+	height:550px;
+	position:absolute;
+	top: 0;
+	left: 0;
+	/*border:1px solid #9D815B;*/
+	display:none;
+	z-index: 10;
+	text-align: center;
+	font-size: 12px;
+	color:#9D815B;
+}
+
+
+
+#contenitor ul li div#email_bespoke {
+	border-bottom:2px solid #9D815B;
+	width:460px; 
+	height:62px;
+	text-align:left;
+	margin-left:9px;
+	z-index:2;
+}
+#contenitor ul li div#payment_bespoke {
+	width:460px; 
+	height:62px;
+	margin-left:9px;
+	
+}
+#monogram {
+color:black;
+}
+#mono {
+display:none;
+}
+.mono2 {
+display:none
+}
