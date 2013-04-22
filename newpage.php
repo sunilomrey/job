@@ -28,25 +28,42 @@
     $( "#tabs" ).tabs();
   });
   </script>
-  <script>
- var modSelezionato = "Plain";
-var costo_modSelezionato = "250";
+<?php 				
+$con=mysqli_connect("127.0.0.1","root","","bespoke");
+// Check connection
+if (mysqli_connect_errno($con))
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+	$result = mysqli_query($con,"SELECT * FROM admin");
+	$row = mysqli_fetch_array($result);
+	
+echo "<script>
+var modSelezionato = 'Plain';
+var costo_modSelezionato = ".$row['shoesprice'].";
+var originalshoeprice = ".$row['shoesprice'].";
+var tasselsprice= ".$row['tasselprice'].";
+var monogramprice = ".$row['monogramprice'].";
+var domesticshipping = ".$row['domesticshipping'].";
+var internationalshipping = ".$row['internationalshipping'].";
 var tagliaSelezionata;
 var matSelezionato;
 var colore_matSelezionato;
 var trimming;
-var tassels = "no tassels";
-var monogram_Data = "no monograms";
+var tassels = 'no tassels';
+var monogram_Data = 'no monograms';
 var deluxe = parseInt(0);
-var deluxeText = "no deluxe pack";
+var deluxeText = 'no deluxe pack';
 var shoeHorn = parseInt(0);
-var shoeHornText = "no shoe trees";
+var shoeHornText = 'no shoe trees';
 var costoDef;
 var email_buyer; 
-</script>
+</script>"; ?>
 </head>
 
 <body>
+    <div><?php echo $row['shoesprice'], $row['tasselprice'], $row['monogramprice'], $row['domesticshipping'], $row['internationalshipping'];
+	?> </div>
 	<div id="work_table" class="resize">
 	<script type="text/javascript"> // resize work_table for smaller screens
 		$.getJSON("http://jsonip.appspot.com?callback=?",
@@ -154,7 +171,7 @@ var email_buyer;
 		<div id="your_shoes">YOUR SHOES:</div>
 		<div id="your_shoes_right">&nbsp;</div>
 		<div id="dest1">&nbsp;</div>
-		<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>250 &#36;</p></div>
+		<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p><?php echo $row['shoesprice']; ?> &#36;</p></div>
 		<div id="dest1_descrizione" style="color:#9D815B">PRICE</div>
 		
 		<div id="dest3">&nbsp;</div>
@@ -203,9 +220,12 @@ var email_buyer;
     <p>
 				
 				<div id="monogram" class="mono2" name="image">
-				<form action="form_action.asp" accept="image/gif, image/jpeg, image/jpg, image/png">&nbsp;<br>
-				<input type="checkbox" name="check_image" value="checked" />EMBLEM   <br>&nbsp;<br>
-                 <input type="file" name="pic" id="pic" /><br />
+				<form action="upload_file.php" method="post"
+enctype="multipart/form-data">
+<label for="file">Filename:</label>
+<input type="file" name="file" id="file"><br>
+<input type="submit" name="submit" value="Submit">
+</form>
                  <!--input type="submit" value="Submit" onclick="select04_monogram();" /-->
                 </form>
 				&nbsp;<br><input type="button" value="APPLY!" onclick="select04_monogram();"> 

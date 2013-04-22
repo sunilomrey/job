@@ -30,7 +30,8 @@ $(document).ready(function() {
 			$("#measurement_chart").fadeOut("slow");
 		}
 	);
-		
+
+  
 });
 
 function openVideo() {
@@ -40,20 +41,7 @@ function closeVideo() {
 	$("#video").fadeOut("slow");
 };
 
-var modSelezionato = "Plain";
-var costo_modSelezionato = "250";
-var tagliaSelezionata;
-var matSelezionato;
-var colore_matSelezionato;
-var trimming;
-var tassels = "no tassels";
-var monogram_Data = "no monograms";
-var deluxe = parseInt(0);
-var deluxeText = "no deluxe pack";
-var shoeHorn = parseInt(0);
-var shoeHornText = "no shoe trees";
-var costoDef;
-var email_buyer;
+
 
 //qui facciamo sparire lo speaker. 
 function out_of_service() {
@@ -141,9 +129,10 @@ function select04_tassels(tassellsColore) {
 		$("#dest4_bis").fadeOut(100).css('background','transparent').fadeIn(100);
 		$("#dest4_monogram").fadeIn("slow");
 		$("#dest4_tassels").replaceWith('<div id="dest4_tassels" style="text-align:right"><div id="dest4_tassels_left" style="color:#9D815B">TASSELS</div><div id="dest4_tassels_right" style="border:2px solid #9D815B;background-color:#000000;"><img src="imgs/bespoke/'+tassels+'.jpg" alt='+tassels+'" /></div></div>');
-		costo_modSelezionato = 250;
+		costo_modSelezionato = costo_modSelezionato;
 		$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
 	} else { 
+	    costo_modSelezionato = originalshoeprice;
 		//ALTRIMENTI NASCONDO IL PANNELLO "MONOGRAM" E CANCELLO I MONOGRAMMI, APPLICO IL BACKGROUND CON IL TASSELLO SELEZIONATO E MODIFICO RESOCONTO A SINISTRA E COSTO
 		$("#dest4_monogram").fadeOut("slow");
 		$("#dest4_monogram_description").fadeOut("slow");
@@ -155,7 +144,7 @@ function select04_tassels(tassellsColore) {
 		document.monogram.lettera_dx.value = "";
 		monogram_Data = "no monograms";
 		$("#dest4_tassels").replaceWith('<div id="dest4_tassels" style="text-align:right"><div id="dest4_tassels_left" style="color:#9D815B">TASSELS</div><div id="dest4_tassels_right" style="border:2px solid #9D815B;background-color:#000000;"><img src="imgs/bespoke/basi/40x50_'+tassels+'.png" alt='+tassels+'" style="margin-left:-5px; margin-top:-5px;" /></div></div>');
-		costo_modSelezionato = 280;
+		costo_modSelezionato = costo_modSelezionato + tasselsprice;
 		$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
 	}
 };
@@ -192,6 +181,7 @@ function select04_monogram() {
 		if (lettera_sx == "" || lettera_dx == "" || color_monogram == undefined || selected_font == undefined) {
 			alert("Please, all monogram's fields are required")
 		} else {
+		    costo_modSelezionato = originalshoeprice;
 			//ALTRIMENTI MODIFICO LA VARIABILE monogram_Data
 			monogram_Data = "left: '"+lettera_dx+"'; right: '"+lettera_sx+"'; font: '"+selected_font+"'; color: '"+color_monogram+"'.";
 			//CREO IL RESOCONTO A SINISTRA
@@ -202,7 +192,7 @@ function select04_monogram() {
 			$("#dest4_right").fadeOut(100).css('background','url(imgs/bespoke/monograms/'+selected_font+'/'+color_monogram+'/'+lettera_dx+'.png) left no-repeat').fadeIn(100);
 			
 			//MODIFICO IL COSTO GLOBALE
-			costo_modSelezionato = 280;
+			costo_modSelezionato += monogramprice;
 			$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
 		}; //chiusura if annidato
 					
@@ -217,7 +207,7 @@ function select04_monogram() {
 		$("#dest4_right").fadeOut("slow").css('background','transparent').fadeIn(100);
     	
     	//MODIFICO IL COSTO GLOBALE
-		costo_modSelezionato = 250;
+		costo_modSelezionato = costo_modSelezionato;
 		$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
     };//chiusura primo if
 };
@@ -253,14 +243,14 @@ function openShoeHorn() {
 
 function shoeHornYes() {
 	shoeHornText = "cedar shoe trees";
-	shoeHorn = parseInt(20);
+	shoeHorn = parseInt(domesticshipping);
 	costoDef = costo_modSelezionato + deluxe + shoeHorn;
 	$("#dest1_costo").fadeOut().replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costoDef+' &#36;</p></div>').fadeIn();
 };
 
 function shoeHornNo() {
 	shoeHornText = "no shoe trees";
-	shoeHorn = parseInt(40);
+	shoeHorn = parseInt(internationalshipping);
 	costoDef = costo_modSelezionato + deluxe + shoeHorn;
 	$("#dest1_costo").fadeOut().replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costoDef+' &#36;</p></div>').fadeIn();	
 };

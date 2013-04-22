@@ -613,9 +613,14 @@ background-color:white;
 #monogram {
 color:black;
 }
-#mono {
-display:none;
+#prc {
+text-decoration:none;
 }
-.mono2 {
-display:none
-}
+#firstvalue {
+    margin:15px 0 10px 10px;
+	position:relative;
+	}
+#secondvalue {
+    position:relative;
+    margin:15px 0 10px 10px;
+	}	
