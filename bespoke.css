@@ -445,9 +445,9 @@ background-color:white;
 	padding:8px 0 8px 0;
 	position:absolute;
 	top: 100px;
-	right:0;
-	width:200px;
-	height:220px;
+	right:10px;
+	width:175px;
+	height:210px;
 	text-align:center;
 	border:2px solid #9D815B;
 	-webkit-border-radius: 20px;
@@ -611,10 +611,10 @@ background-color:white;
 	
 }
 #monogram {
-color:black;
+    color:black;
 }
 #prc {
-text-decoration:none;
+    text-decoration:none;
 }
 #firstvalue {
     margin:15px 0 10px 10px;
@@ -623,4 +623,48 @@ text-decoration:none;
 #secondvalue {
     position:relative;
     margin:15px 0 10px 10px;
-	}	
+}
+#image-list {
+    width:50px;
+	height:50px;
+	}
+	#response {
+    width:50px;
+	height:50px;
+	}
+	#image-list li img {
+	width: 80px;
+	height:70px;
+	vertical-align: middle;
+	border:1px solid #474747;
+	margin-top:-510px;
+	margin-left:-400px;
+}
+#image-list {
+	list-style:none;
+	margin:0px;
+	padding:0px;
+}
+#image-list li {
+	display:always;
+	margin-top:0px;
+	padding:0px;
+	margin-bottom:145px;
+}
+
+	#emblem1 {
+	padding:8px 0 8px 0;
+	position:absolute;
+	top: 100px;
+	right:10px;
+	width:175px;
+	height:210px;
+	text-align:center;
+	border:2px solid #9D815B;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	/*background-color:#000000;*/
+	color:#ffffff;
+	z-index: 7;
+	display:none;

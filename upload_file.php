@@ -1,4 +1,5 @@
 <?php
+echo "upload_file php called";
 $allowedExts = array("gif", "jpeg", "jpg", "png");
 $extension = end(explode(".", $_FILES["file"]["name"]));
 if ((($_FILES["file"]["type"] == "image/gif")
@@ -38,4 +39,4 @@ else
   {
   echo "Invalid file";
   }
-  
+  ?>

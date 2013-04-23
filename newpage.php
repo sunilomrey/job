@@ -188,13 +188,8 @@ var email_buyer;
 		     <option>-Select-</option>
 		   <option value="mong">Monogram</option>
 		   <option value="emb">Emblem</option>
-		   </select> --><div id="tabs">
-  <ul>
-    <li><a href="#tabs-1">Monogram </a></li>
-    <li><a href="#tabs-2">Emblem </a></li>
-   
-  </ul><div id="tabs-1">
-    <p>
+		   </select> -->
+
   <div id="mono">
 			<form id="monogram" name="monogram">
 				<input type="checkbox" name="check_monogram" value="checked"> MONOGRAMS<br>
@@ -206,32 +201,41 @@ var email_buyer;
 			    </fieldset><br /-->
 			    &nbsp;<br>
 				<fieldset>
-			        <div style="position:absolute; left:10px; width:25px; height:20px; background:url('imgs/bespoke/angle_monograms.png')  no-repeat #FFCB53;"><!--&nbsp;<br>--><input type="radio" name="color_monogram" value="YELLOW"></div>
-			        <div style="position:absolute; left:40px; width:25px; height:20px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #000000;"><!--&nbsp;<br>--><input type="radio" name="color_monogram" value="BLACK"></div>
-			        <div style="position:absolute; left:70px; width:25px; height:20px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #c30000;"><!--&nbsp;<br>--><input type="radio" name="color_monogram" value="RED"></div>
-			        <div style="position:absolute; left:100px; width:25px; height:20px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #000066;"><!--&nbsp;<br>--><input type="radio" name="color_monogram" value="BLUE"></div><!--<br>&nbsp;<br>&nbsp;<br>-->
-			        <div style="position:absolute; left:130px; width:25px; height:20px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #005100;"><!--&nbsp;<br>--><input type="radio" name="color_monogram" value="GREEN"></div>
-			        <div style="position:absolute; left:160px; width:25px; height:20px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #72009c;"><!--&nbsp;<br>--><input type="radio" name="color_monogram" value="PURPLE"></div>
+			        <div style="position:absolute; left:8px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #FFCB53;">&nbsp;<br><input type="radio" name="color_monogram" value="YELLOW"></div>
+			        <div style="position:absolute; left:48px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #000000;">&nbsp;<br><input type="radio" name="color_monogram" value="BLACK"></div>
+			        <div style="position:absolute; left:88px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #c30000;">&nbsp;<br><input type="radio" name="color_monogram" value="RED"></div>
+			        <div style="position:absolute; left:128px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #000066;">&nbsp;<br><input type="radio" name="color_monogram" value="BLUE"></div><br>&nbsp;<br>&nbsp;<br>
+			        <div style="position:absolute; left:48px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #005100;">&nbsp;<br><input type="radio" name="color_monogram" value="GREEN"></div>
+			        <div style="position:absolute; left:88px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #72009c;">&nbsp;<br><input type="radio" name="color_monogram" value="PURPLE"></div>
 			    </fieldset>
 				&nbsp;<br>
+				&nbsp;<br>
+				&nbsp;<br>
 				<input type="button" value="APPLY!" onclick="select04_monogram();"/> 
-			</form></div></p></div>
-				<div id="tabs-2">
-    <p>
-				
-				<div id="monogram" class="mono2" name="image">
-				<form action="upload_file.php" method="post"
-enctype="multipart/form-data">
-<label for="file">Filename:</label>
-<input type="file" name="file" id="file"><br>
-<input type="submit" name="submit" value="Submit">
-</form>
-                 <!--input type="submit" value="Submit" onclick="select04_monogram();" /-->
+			</form></div> 
+		 </div>	
+			<div id="emblem1">	
+	<div id="monogram" class="mono2" name="image">
+          <div id="main">
+		<input type="checkbox" name="check_monogram" value="checked"> Your Emblem<br>
+		<form method="post" enctype="multipart/form-data"  action="upload.php">
+    		<input type="file" name="images" id="images" multiple />
+    		<button type="submit" id="btn">Upload Files!</button>
+    	</form>
+
+  	    <div id="response"></div>
+	    	<ul id="image-list">
+		    </ul>
+	    </div>
+	
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+         <script src="upload.js"></script>
+
                 </form>
-				&nbsp;<br><input type="button" value="APPLY!" onclick="select04_monogram();"> 
-				</div></p></div> </div>
 				
-		</div>
+	</div>
+				</div>
+		
 		<div id="dest4_monogram_description">&nbsp;</div>
 		<div id="bespoke_policy">
 			<h1>&nbsp;<br>PRIVACY POLICY</h1><br>
@@ -299,7 +303,7 @@ enctype="multipart/form-data">
 	    					
 	    					<div id="upper_trimsTassels" style="position:absolute; top:0; left:0; width:191px; height:126px; border-right:2px solid #9D815B; padding-right:9px;text-align:center">
 	    						<div style="position:absolute; top:0; left:0; height:61px; width:193px; border-bottom:2px solid #9D815B">TRIMMING<div style="width:100px; height:24px; padding-top: 6px; background-color:#9D815B;	-webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; margin-top:2px; color:#000000">NAPPA</div></div>
-	    						<div style="position:absolute; top:65px; left:0; height:61px; width:193px;">TASSELS<br><a href="javascript:select04_tassels('no tassels')" style=" color:#000000"><div style="width:120px; height:34px; padding-top: 6px; background-color:#9D815B;	-webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; margin-top:2px; font-size:12px;">EMBLEM OR<br>MONOGRAM</div></a></div>
+	    						<div style="position:absolute; top:65px; left:0; height:61px; width:193px;">TASSELS<br><a href="javascript:select04_tassels('no tassels')" style=" color:#000000"><div style="width:90px; float:left; height:30px; padding-top: 10px; background-color:#9D815B;	-webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; margin-top:2px; font-size:12px;">MONOGRAM</div></a><a href="javascript:select040_emblem" style=" color:#000000"><div style="width:90px; float:right; height:30px; padding-top: 10px; background-color:#9D815B;	-webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; margin-top:2px; font-size:12px;" id="emb">EMBLEM</div></a></div>
 	    					</div>
 	    					
 	    					<div id="trimsTassels_color" style="position:absolute; top:0; left:209px; width:649px; height:126px; border-right:2px solid #9D815B; text-align:left">

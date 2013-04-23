@@ -30,7 +30,7 @@ $(document).ready(function() {
 			$("#measurement_chart").fadeOut("slow");
 		}
 	);
-
+   
   
 });
 
@@ -121,6 +121,32 @@ function select04_trimming(trimColore) {
 	$("#avanti").css('z-index','10');
 };
 
+function select040_emblem(image){
+    emblem = image;
+	//SE IL TASSEL NON VIENE SELEZIONATO, MOSTRO IL PANNELLO "MONOGRAM" E MODIFICO RESOCONTO A SINISTRA E COSTO
+	if (tassels == "no tassels") {
+		$("#dest4_bis").fadeOut(100).css('background','transparent').fadeIn(100);
+		$("#emblem1").fadeIn("slow");
+		$("#dest4_tassels").replaceWith('<div id="dest4_tassels" style="text-align:right"><div id="dest4_tassels_left" style="color:#9D815B">TASSELS</div><div id="dest4_tassels_right" style="border:2px solid #9D815B;background-color:#000000;"><img src="imgs/bespoke/'+tassels+'.jpg" alt='+tassels+'" /></div></div>');
+		costo_modSelezionato = costo_modSelezionato;
+		$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
+	} else { 
+	    costo_modSelezionato = originalshoeprice;
+		//ALTRIMENTI NASCONDO IL PANNELLO "MONOGRAM" E CANCELLO I MONOGRAMMI, APPLICO IL BACKGROUND CON IL TASSELLO SELEZIONATO E MODIFICO RESOCONTO A SINISTRA E COSTO
+		$("#emblem1").fadeOut("slow");
+		$("#dest4_monogram_description").fadeOut("slow");
+		$("#dest4_left").fadeOut("slow").css('background','transparent').fadeIn(100);
+		$("#dest4_right").fadeOut("slow").css('background','transparent').fadeIn(100);
+		$("#dest4_monogram_description").replaceWith('<div id="dest4_monogram_description">&nbsp;</div>');
+		$("#dest4_bis").fadeOut(100).css('background','url(imgs/bespoke/TASSELS/'+tassels+'.png) repeat scroll 0 0 transparent').fadeIn(100);
+		document.monogram.lettera_sx.value = "";
+		document.monogram.lettera_dx.value = "";
+		monogram_Data = "no monograms";
+		$("#dest4_tassels").replaceWith('<div id="dest4_tassels" style="text-align:right"><div id="dest4_tassels_left" style="color:#9D815B">TASSELS</div><div id="dest4_tassels_right" style="border:2px solid #9D815B;background-color:#000000;"><img src="imgs/bespoke/basi/40x50_'+tassels+'.png" alt='+tassels+'" style="margin-left:-5px; margin-top:-5px;" /></div></div>');
+		costo_modSelezionato = costo_modSelezionato + tasselsprice;
+		$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
+	}
+	};
 
 function select04_tassels(tassellsColore) {
 	tassels = tassellsColore;
@@ -291,6 +317,7 @@ function deluxeYes() {
 	$("#deluxe_options").replaceWith('<div id="deluxe_options" style="position:absolute; top:0; left:416px; width:440px; height:126px; border-right:2px solid #9D815B; font-size:12px; text-align:left;">Send your order as a gift and include a personalized greeting card<br />&nbsp;<br /><textarea rows="4" cols="50" onFocus="this.value=\'\';" onBlur="deluxeMessage(this);">Text of the greeting card</textarea> <input type="button" value="OK" style="background-color:#9D815B; color:#000000; margin:0 0 0 12px;" /><br />&nbsp;</div>');
 	$("#dest4_monogram").fadeOut(10);
 	$("#fondo6").replaceWith('<div id="fondo6" class="fondo" style="text-align:left">&nbsp;</div>');
+	
 };
 
 function deluxeMessage(area) {
