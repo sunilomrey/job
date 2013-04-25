@@ -44,6 +44,7 @@ var costo_modSelezionato = ".$row['shoesprice'].";
 var originalshoeprice = ".$row['shoesprice'].";
 var tasselsprice= ".$row['tasselprice'].";
 var monogramprice = ".$row['monogramprice'].";
+var emblemprice = ".$row['emblemprice'].";
 var domesticshipping = ".$row['domesticshipping'].";
 var internationalshipping = ".$row['internationalshipping'].";
 var tagliaSelezionata;
@@ -52,18 +53,19 @@ var colore_matSelezionato;
 var trimming;
 var tassels = 'no tassels';
 var monogram_Data = 'no monograms';
+var monogram_Data1 = 'no emblem';
 var deluxe = parseInt(0);
-var deluxeText = 'no deluxe pack';
-var shoeHorn = parseInt(0);
-var shoeHornText = 'no shoe trees';
+var deluxeText = 'No Message';
+var shoeHorn = parseInt(domesticshipping);
+var shoeHornText = 'Domestic shipping';
 var costoDef;
 var email_buyer; 
 </script>"; ?>
 </head>
 
 <body>
-    <div><?php echo $row['shoesprice'], $row['tasselprice'], $row['monogramprice'], $row['domesticshipping'], $row['internationalshipping'];
-	?> </div>
+   
+
 	<div id="work_table" class="resize">
 	<script type="text/javascript"> // resize work_table for smaller screens
 		$.getJSON("http://jsonip.appspot.com?callback=?",
@@ -147,7 +149,7 @@ var email_buyer;
 			THANK YOU<!--br />
 			&nbsp;<br />
 			&nbsp;<br />
-			<div><a href="#" target="_self" style="border:2px solid #9D815B;">&nbsp;WATCH THE DEMO VIDEO&nbsp;</a></div-->
+			<div><a href="#" target="_self" style="border:2px solid #9D815B;">&nbsp;WATCH THE DEMO VIDEO&nbsp;</a></div>-->
 		</div>
 		<div id="video">
 			<div style="position:absolute; right:50px; top:0"><a href="javascript:closeVideo()" style="color:#FF0000; font-size:56px;">x</a>&nbsp;</div>
@@ -192,8 +194,16 @@ var email_buyer;
 
   <div id="mono">
 			<form id="monogram" name="monogram">
-				<input type="checkbox" name="check_monogram" value="checked"> MONOGRAMS<br>
-			    &nbsp;<br>
+				<!--<input type="checkbox" name="check_monogram" value="checked"> MONOGRAMS<br>
+			    &nbsp;<br>-->
+				<div>
+				  <select id="font">
+				  
+				     <option>ARIAL</option>
+					 <option>EDWARDIAN_SCRIPT</option>
+					 <option>TIMES_NEW_ROMAN</option>
+				  </select>
+				</div> &nbsp;<br>
 				<input style="text-align:center; width:40px" type="text" name="lettera_sx" size="1" value=" " onfocus="this.value='';" onblur="gestioneTextarea(this);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="text-align:center; width:40px" type="text" name="lettera_dx" size="1" value=" " onfocus="this.value='';" onblur="gestioneTextarea(this);"><br>
 				<!--fieldset>
 			        <div style="position:absolute; left:50px; width:66px;">GOTHIC<br /><input type="radio" name="selected_font" value="GOTHIC"/></div>
@@ -201,12 +211,12 @@ var email_buyer;
 			    </fieldset><br /-->
 			    &nbsp;<br>
 				<fieldset>
-			        <div style="position:absolute; left:8px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #FFCB53;">&nbsp;<br><input type="radio" name="color_monogram" value="YELLOW"></div>
-			        <div style="position:absolute; left:48px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #000000;">&nbsp;<br><input type="radio" name="color_monogram" value="BLACK"></div>
-			        <div style="position:absolute; left:88px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #c30000;">&nbsp;<br><input type="radio" name="color_monogram" value="RED"></div>
-			        <div style="position:absolute; left:128px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #000066;">&nbsp;<br><input type="radio" name="color_monogram" value="BLUE"></div><br>&nbsp;<br>&nbsp;<br>
-			        <div style="position:absolute; left:48px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #005100;">&nbsp;<br><input type="radio" name="color_monogram" value="GREEN"></div>
-			        <div style="position:absolute; left:88px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #72009c;">&nbsp;<br><input type="radio" name="color_monogram" value="PURPLE"></div>
+			        <div style="position:absolute; left:15px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #FFCB53;">&nbsp;<br><input type="radio" name="color_monogram" value="YELLOW"></div>
+			        <div style="position:absolute; left:60px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #000000;">&nbsp;<br><input type="radio" name="color_monogram" value="BLACK"></div>
+			        <div style="position:absolute; left:105px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #c30000;">&nbsp;<br><input type="radio" name="color_monogram" value="RED"></div>
+			        <div style="position:absolute; left:150px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #000066;">&nbsp;<br><input type="radio" name="color_monogram" value="BLUE"></div><br>&nbsp;<br>&nbsp;<br>
+			        <div style="position:absolute; left:60px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #005100;">&nbsp;<br><input type="radio" name="color_monogram" value="GREEN"></div>
+			        <div style="position:absolute; left:105px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #72009c;">&nbsp;<br><input type="radio" name="color_monogram" value="PURPLE"></div>
 			    </fieldset>
 				&nbsp;<br>
 				&nbsp;<br>
@@ -217,24 +227,29 @@ var email_buyer;
 			<div id="emblem1">	
 	<div id="monogram" class="mono2" name="image">
           <div id="main">
-		<input type="checkbox" name="check_monogram" value="checked"> Your Emblem<br>
+		<input type="checkbox" name="check_monogram" value="checked"> Your Emblem<br>&nbsp;<br>
 		<form method="post" enctype="multipart/form-data"  action="upload.php">
     		<input type="file" name="images" id="images" multiple />
     		<button type="submit" id="btn">Upload Files!</button>
     	</form>
-
-  	    <div id="response"></div>
-	    	<ul id="image-list">
-		    </ul>
-	    </div>
+</div>
+  	    <div id="response" style="color:white"></div>
+	    	<div id="image-list1">
+			
+		    </div>
+			<div id="image-list2">
+			
+		    </div>
+			
+	    </div></div>
 	
          <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
          <script src="upload.js"></script>
 
-                </form>
+               
 				
-	</div>
-				</div>
+	
+				
 		
 		<div id="dest4_monogram_description">&nbsp;</div>
 		<div id="bespoke_policy">
@@ -286,7 +301,7 @@ var email_buyer;
 	    					<div id="upper_material" style="position:absolute; top:0; left:0; width:191px; height:126px; border-right:2px solid #9D815B; padding-right:9px; font-size:12px; text-align:center">&nbsp;<br><h1>UPPER</h1>
 	    						HERE YOU CAN CHOOSE THE MATERIAL FOR YOUR FLAT'S UPPER<br>
 	    						&nbsp;<br>
-	    						<a href="javascript:select03('SUEDE','0')" style="color:#000000;"><div style="width:100px; height:24px; padding-top: 6px; background-color:#9D815B;	-webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; margin-top:6px;">SUEDE</div></a>
+	    						<a href="javascript:select03('SUEDE','0')" style="color:#000000;"><div style="width:100px; height:24px; padding-top: 6px; background-color:#9D815B; margin-top:6px;">SUEDE</div></a>
 	    						<!--a href="javascript:select03('PONY HAIR','1')"><img src="imgs/bespoke/PONYHAIR.png" alt="pony hair" /></a> <a href="javascript:select03('COMBED COTTON VELVET','2')"><img src="imgs/bespoke/cocco.png" alt="cocco" /></a><br />
 	    						<a href="javascript:select03('TARTAN','3')"><img src="imgs/bespoke/cavallo.png" alt="cavallo" /></a> <a href="javascript:select03('BROCADE','4')"><img src="imgs/bespoke/BROCADE.png" alt="brocade" /></a-->
 	    					</div>
@@ -302,8 +317,8 @@ var email_buyer;
 	    				<div id="fondo4" class="fondo">
 	    					
 	    					<div id="upper_trimsTassels" style="position:absolute; top:0; left:0; width:191px; height:126px; border-right:2px solid #9D815B; padding-right:9px;text-align:center">
-	    						<div style="position:absolute; top:0; left:0; height:61px; width:193px; border-bottom:2px solid #9D815B">TRIMMING<div style="width:100px; height:24px; padding-top: 6px; background-color:#9D815B;	-webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; margin-top:2px; color:#000000">NAPPA</div></div>
-	    						<div style="position:absolute; top:65px; left:0; height:61px; width:193px;">TASSELS<br><a href="javascript:select04_tassels('no tassels')" style=" color:#000000"><div style="width:90px; float:left; height:30px; padding-top: 10px; background-color:#9D815B;	-webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; margin-top:2px; font-size:12px;">MONOGRAM</div></a><a href="javascript:select040_emblem" style=" color:#000000"><div style="width:90px; float:right; height:30px; padding-top: 10px; background-color:#9D815B;	-webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; margin-top:2px; font-size:12px;" id="emb">EMBLEM</div></a></div>
+	    						<div style="position:absolute; top:0; left:0; height:61px; width:193px; border-bottom:2px solid #9D815B">TRIMMING<div style="width:100px; height:24px; padding-top: 6px; background-color:#9D815B; margin-top:2px; color:#000000">NAPPA</div></div>
+	    						<div style="position:absolute; top:65px; left:0; height:61px; width:193px;">TASSELS<br><span>Choose Embroidery<span><br><a href="javascript:select04_tassels('no tassels')" style=" color:#000000"><div style="width:90px; float:left; height:22px; padding-top: 6px; background-color:#9D815B; margin-top:2px; font-size:10px;">MONOGRAM</div></a><a href="javascript:select04_etassels('no tassels')" style=" color:#000000"><div style="width:90px; float:right; height:22px; padding-top: 6px; background-color:#9D815B; margin-top:2px; font-size:10px;" id="emb">EMBLEM</div></a></div>
 	    					</div>
 	    					
 	    					<div id="trimsTassels_color" style="position:absolute; top:0; left:209px; width:649px; height:126px; border-right:2px solid #9D815B; text-align:left">
@@ -347,7 +362,7 @@ var email_buyer;
 							
 	    					</div>
 	    					
-	    					<div id="deluxe_options" style="position:absolute; top:0; left:405px; width:440px; height:126px; border-right:2px solid #9D815B;">&nbsp;</div>
+	    					<div id="deluxe_options" style="position:absolute; top:-7px; left:405px; width:440px; height:126px; border-right:2px solid #9D815B;">&nbsp;</div>
 						</div>
 	    			</div>
 	    		</li>
@@ -355,7 +370,7 @@ var email_buyer;
 	    		
 	    		<li id="step6">
 	    			<div><h1>&nbsp;</h1>
-	    				<div id="fondo6" class="fondo" style="text-align:left">&nbsp;</div>
+	    				<div id="fondo6" class="fondo" style="text-align:left; height:150px">&nbsp;</div>
 	    			</div>
 	    		</li>
 	    	</ul>

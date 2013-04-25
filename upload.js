@@ -3,14 +3,19 @@
 		formdata = false;
 
 	function showUploadedItem (source) {
-  		var list = document.getElementById("image-list"),
-	  		li   = document.createElement("li"),
-	  		img  = document.createElement("img");
-  		img.src = source;
-  		li.appendChild(img);
-		list.appendChild(li);
+  		var list1 = document.getElementById("image-list1"),
+	  		
+	  		img1 = document.createElement("img");
+  		img1.src = source;
+  		
+		list1.appendChild(img1);
+		var list2 = document.getElementById("image-list2"),
+	  		img2 = document.createElement("img");
+  		img2.src = source;
+  		
+		list2.appendChild(img2);
 	}   
-
+    
 	if (window.FormData) {
   		formdata = new FormData();
   		document.getElementById("btn").style.display = "none";
@@ -46,8 +51,11 @@
 				contentType: false,
 				success: function (res) {
 					document.getElementById("response").innerHTML = res; 
+					$("#main").fadeOut("fast");
+					monogram_Data1 = document.getElementById("response").innerHTML; 
 				}
 			});
 		}
 	}, false);
+	
 }());

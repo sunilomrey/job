@@ -25,6 +25,10 @@
 		 <div style="padding-top:25px; paddng-left:25px"><input type="text" name="price3" id="price12"></div>
 	 &nbsp;<br>&nbsp;<br>
    
+         <div style="float:left; padding-right:120px; margin-left:30px;"><h3>Emblem Price</h3></div>
+		 <div style="padding-top:25px; paddng-left:25px"><input type="text" name="price6" id="price12.1"></div>
+	 &nbsp;<br>&nbsp;<br>
+   
 	     <div style="float:left; padding-right:80px; margin-left:30px;"><h3>Domenstic Shipping</h3></div>
 		 <div style="padding-top:25px; paddng-left:25px"><input type="text" name="price4" id="price13"></div>
      	 &nbsp;<br>&nbsp;<br>
@@ -34,10 +38,10 @@
 	 
 	 <div style="width:185px; padding-right:30px; float:left; padding-top:15px; padding-left:16px;" class="textgrey">&nbsp;</div>
                 <div style="width:235px; float:left; padding-top:50px; height:25px; padding-bottom:20px; margin-left:-100px"><input name="Submit" type="submit" value="submit" style="background:#59903A;color:white"></div>  
-				<div style="float:right; margin-top:-450px; margin-right:50px;"><h2>Present Prices</h2></div>
+				<div style="float:right; margin-top:-520px; margin-right:170px;"><h2>Present Prices</h2></div>
 				
 				
-				<div style="float:right; margin-top:-370px; margin-right:50px; width:200px; height:200px">
+				<div style="float:right; margin-top:-450px; margin-right:100px; width:200px; height:200px">
 				
 				<?php 
 				$con=mysqli_connect("127.0.0.1","root","","bespoke");
@@ -53,6 +57,7 @@ echo "<table border='1'>
 <th>price1</th>
 <th>price2</th>
 <th>price3</th>
+<th>price6</th>
 <th>price4</th>
 <th>price5</th>
 </tr>";
@@ -63,6 +68,7 @@ $row = mysqli_fetch_array($result);
   echo "<td>" . $row['shoesprice'] . "</td>";
   echo "<td>" . $row['tasselprice'] . "</td>";
   echo "<td>" . $row['monogramprice'] . "</td>";
+  echo "<td>" . $row['emblemprice'] . "</td>";
   echo "<td>" . $row['domesticshipping'] . "</td>";
   echo "<td>" . $row['internationalshipping'] . "</td>";
   echo "</tr>";

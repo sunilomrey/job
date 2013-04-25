@@ -8,4 +8,5 @@ foreach ($_FILES["images"]["error"] as $key => $error) {
 
 
 
+echo  $name;
 ?>

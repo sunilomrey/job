@@ -79,7 +79,8 @@ function select02(taglia) {
 	//RECUPERO IL VALORE DELLA TAGLIA SELEZIONATA, AGGIORNO IL RESOCONTO A SINISTRA, RICHIAMO IL COSTO E PROCEDO
 	tagliaSelezionata = taglia;
 	$("#dest2").replaceWith('<div id="dest2" style="border:2px solid #9D815B;"><p>'+taglia+'</p></div><div id="dest2_descrizione" style="color:#9D815B">SIZE</div>');
-    
+    $("#your_shoes").fadeIn(10);
+	$("#your_shoes_right").fadeIn(10);
 	$("#avanti").css('z-index','10');  
 };
 
@@ -96,8 +97,8 @@ function select03(materiale, number) {
 	$("#dest3_selezioni").replaceWith('<div id="dest3_selezioni" style="text-align:left"><p>&nbsp;</p><div id="dest3_colore"></div><div id="dest3_materiale" style="color:#9D815B">'+matSelezionato+'</div></div>');
 	$("#material_color").html('<!--MATERIAL\'S COLOR<br />-->'+ colori[number]);
 	$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div><div id="dest1_descrizione" style="color:#9D815B">PRICE</div>');
-	$("#your_shoes_right").fadeIn(10); 
 	$("#your_shoes").fadeIn(10);
+	$("#your_shoes_right").fadeIn(10);
 	$("#avanti").css('z-index','10');                            
 	
 };
@@ -108,8 +109,7 @@ function select03_bis(colore) {
 	colore_matSelezionato = colore;
 	$("#dest1").fadeOut(100).css('background','url(imgs/bespoke/'+matSelezionato+'/'+colore_matSelezionato+'.png) repeat scroll 0 0 transparent').fadeIn(100); //DA REINSERIRE CON BACKGROUND IMMAGINE CORRETTO
 	$("#dest3_colore").replaceWith('<div id="dest3_colore" style="border:2px solid #9D815B;background-color:#000000;"><img src="imgs/bespoke/basi/40x126_'+colore_matSelezionato+'.png" alt="'+colore_matSelezionato+'" style="margin-left:-5px; margin-top:-5px;" /></div>');
-     
-	$("#avanti").css('z-index','10');
+    $("#avanti").css('z-index','10');
 };
 
 
@@ -121,32 +121,7 @@ function select04_trimming(trimColore) {
 	$("#avanti").css('z-index','10');
 };
 
-function select040_emblem(image){
-    emblem = image;
-	//SE IL TASSEL NON VIENE SELEZIONATO, MOSTRO IL PANNELLO "MONOGRAM" E MODIFICO RESOCONTO A SINISTRA E COSTO
-	if (tassels == "no tassels") {
-		$("#dest4_bis").fadeOut(100).css('background','transparent').fadeIn(100);
-		$("#emblem1").fadeIn("slow");
-		$("#dest4_tassels").replaceWith('<div id="dest4_tassels" style="text-align:right"><div id="dest4_tassels_left" style="color:#9D815B">TASSELS</div><div id="dest4_tassels_right" style="border:2px solid #9D815B;background-color:#000000;"><img src="imgs/bespoke/'+tassels+'.jpg" alt='+tassels+'" /></div></div>');
-		costo_modSelezionato = costo_modSelezionato;
-		$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
-	} else { 
-	    costo_modSelezionato = originalshoeprice;
-		//ALTRIMENTI NASCONDO IL PANNELLO "MONOGRAM" E CANCELLO I MONOGRAMMI, APPLICO IL BACKGROUND CON IL TASSELLO SELEZIONATO E MODIFICO RESOCONTO A SINISTRA E COSTO
-		$("#emblem1").fadeOut("slow");
-		$("#dest4_monogram_description").fadeOut("slow");
-		$("#dest4_left").fadeOut("slow").css('background','transparent').fadeIn(100);
-		$("#dest4_right").fadeOut("slow").css('background','transparent').fadeIn(100);
-		$("#dest4_monogram_description").replaceWith('<div id="dest4_monogram_description">&nbsp;</div>');
-		$("#dest4_bis").fadeOut(100).css('background','url(imgs/bespoke/TASSELS/'+tassels+'.png) repeat scroll 0 0 transparent').fadeIn(100);
-		document.monogram.lettera_sx.value = "";
-		document.monogram.lettera_dx.value = "";
-		monogram_Data = "no monograms";
-		$("#dest4_tassels").replaceWith('<div id="dest4_tassels" style="text-align:right"><div id="dest4_tassels_left" style="color:#9D815B">TASSELS</div><div id="dest4_tassels_right" style="border:2px solid #9D815B;background-color:#000000;"><img src="imgs/bespoke/basi/40x50_'+tassels+'.png" alt='+tassels+'" style="margin-left:-5px; margin-top:-5px;" /></div></div>');
-		costo_modSelezionato = costo_modSelezionato + tasselsprice;
-		$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
-	}
-	};
+
 
 function select04_tassels(tassellsColore) {
 	tassels = tassellsColore;
@@ -156,16 +131,19 @@ function select04_tassels(tassellsColore) {
 		$("#dest4_monogram").fadeIn("slow");
 		$("#dest4_tassels").replaceWith('<div id="dest4_tassels" style="text-align:right"><div id="dest4_tassels_left" style="color:#9D815B">TASSELS</div><div id="dest4_tassels_right" style="border:2px solid #9D815B;background-color:#000000;"><img src="imgs/bespoke/'+tassels+'.jpg" alt='+tassels+'" /></div></div>');
 		costo_modSelezionato = costo_modSelezionato;
+		$("#emblem1").fadeOut("slow");
 		$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
 	} else { 
 	    costo_modSelezionato = originalshoeprice;
 		//ALTRIMENTI NASCONDO IL PANNELLO "MONOGRAM" E CANCELLO I MONOGRAMMI, APPLICO IL BACKGROUND CON IL TASSELLO SELEZIONATO E MODIFICO RESOCONTO A SINISTRA E COSTO
+		$("#emblem1").fadeOut("slow");
 		$("#dest4_monogram").fadeOut("slow");
 		$("#dest4_monogram_description").fadeOut("slow");
 		$("#dest4_left").fadeOut("slow").css('background','transparent').fadeIn(100);
 		$("#dest4_right").fadeOut("slow").css('background','transparent').fadeIn(100);
 		$("#dest4_monogram_description").replaceWith('<div id="dest4_monogram_description">&nbsp;</div>');
 		$("#dest4_bis").fadeOut(100).css('background','url(imgs/bespoke/TASSELS/'+tassels+'.png) repeat scroll 0 0 transparent').fadeIn(100);
+		$("#emblem1").fadeOut("slow");
 		document.monogram.lettera_sx.value = "";
 		document.monogram.lettera_dx.value = "";
 		monogram_Data = "no monograms";
@@ -174,17 +152,50 @@ function select04_tassels(tassellsColore) {
 		$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
 	}
 };
-
+     //selects the emblem
+function select04_etassels(tassellsColore) {
+	tassels = tassellsColore;
+	//SE IL TASSEL NON VIENE SELEZIONATO, MOSTRO IL PANNELLO "MONOGRAM" E MODIFICO RESOCONTO A SINISTRA E COSTO
+	if (tassels == "no tassels") {
+	costo_modSelezionato = originalshoeprice;
+		$("#dest4_bis").fadeOut(100).css('background','transparent').fadeIn(100);
+		$("#emblem1").fadeIn("slow");
+		$("#dest4_monogram").fadeOut("slow");
+		$("#dest4_tassels").replaceWith('<div id="dest4_tassels" style="text-align:right"><div id="dest4_tassels_left" style="color:#9D815B">TASSELS</div><div id="dest4_tassels_right" style="border:2px solid #9D815B;background-color:#000000;"><img src="imgs/bespoke/'+tassels+'.jpg" alt='+tassels+'" /></div></div>');
+		costo_modSelezionato += emblemprice;
+		$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
+        $("#dest4_monogram_description").fadeOut("slow");
+		$("#dest4_left").fadeOut(100).css('background','url(file_path) left no-repeat').fadeIn(100);
+		$("#dest4_right").fadeOut(100).css('background','url(file_path) left no-repeat').fadeIn(100);	
+	
+	} else { 
+	    costo_modSelezionato = originalshoeprice;
+		//ALTRIMENTI NASCONDO IL PANNELLO "MONOGRAM" E CANCELLO I MONOGRAMMI, APPLICO IL BACKGROUND CON IL TASSELLO SELEZIONATO E MODIFICO RESOCONTO A SINISTRA E COSTO
+		$("#emblem").fadeOut("slow");
+		$("#dest4_monogram").fadeOut("slow");
+		$("#dest4_monogram_description").fadeOut("slow");
+		$("#dest4_left").fadeOut("slow").css('background','transparent').fadeIn(100);
+		$("#dest4_right").fadeOut("slow").css('background','transparent').fadeIn(100);
+		$("#dest4_monogram_description").replaceWith('<div id="dest4_monogram_description">&nbsp;</div>');
+		$("#dest4_bis").fadeOut(100).css('background','url(imgs/bespoke/TASSELS/'+tassels+'.png) repeat scroll 0 0 transparent').fadeIn(100);
+		document.monogram.lettera_sx.value = "";
+		document.monogram.lettera_dx.value = "";
+		$("#dest4_tassels").replaceWith('<div id="dest4_tassels" style="text-align:right"><div id="dest4_tassels_left" style="color:#9D815B">TASSELS</div><div id="dest4_tassels_right" style="border:2px solid #9D815B;background-color:#000000;"><img src="imgs/bespoke/basi/40x50_'+tassels+'.png" alt='+tassels+'" style="margin-left:-5px; margin-top:-5px;" /></div></div>');
+		costo_modSelezionato += emblemprice;
+		$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
+	}
+};
 
 function select04_monogram() {
 	//AZZERO LA VARIABILE TASSELS
 	tassels = "no tassels";
 	//SE CHECKBOX Ãˆ CHECKED, RECUPERO I CAMPI, SALVO I DATI, LI ESPONGO A SINISTRA E CAMBIO BACKGROUND E COSTO
-	if (document.monogram.check_monogram.checked) { 
+	//if (document.monogram.check_monogram.checked) { 
 		//RECUPERO I VALORI DEI VARI CAMPI
 		var lettera_dx = document.monogram.lettera_sx.value.toUpperCase();
 		var lettera_sx = document.monogram.lettera_dx.value.toUpperCase();
-		var selected_font = "GOTHIC";
+		var selected_font = $("#font").children("option").filter(":selected").text();
+		
 		var color_monogram;
 		
 		/*var rf = document.monogram.selected_font;
@@ -216,26 +227,26 @@ function select04_monogram() {
 			//MODIFICO IL BACKGROUND
 			$("#dest4_left").fadeOut(100).css('background','url(imgs/bespoke/monograms/'+selected_font+'/'+color_monogram+'/'+lettera_sx+'.png) left no-repeat').fadeIn(100);
 			$("#dest4_right").fadeOut(100).css('background','url(imgs/bespoke/monograms/'+selected_font+'/'+color_monogram+'/'+lettera_dx+'.png) left no-repeat').fadeIn(100);
-			
+			$("#emblem1").fadeOut("slow");
 			//MODIFICO IL COSTO GLOBALE
 			costo_modSelezionato += monogramprice;
 			$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
 		}; //chiusura if annidato
 					
-    } else { 
+   // } else { 
     	//ALTRIMENTI AZZERO LA VARIABILE monomgram_Data
-    	monogram_Data = "no monograms";
+    //	monogram_Data = "no monograms";
     	//NASCONDO IL RESOCONTO A SINISTRA
-    	$("#dest4_monogram_description").replaceWith('<div id="dest4_monogram_description">&nbsp;</div>');
-    	
+    //	$("#dest4_monogram_description").replaceWith('<div id="dest4_monogram_description">&nbsp;</div>');
+    //	$("#emblem1").fadeOut("slow");
     	//MODIFICO IL BACKGROUND
-		$("#dest4_left").fadeOut("slow").css('background','transparent').fadeIn(100);
-		$("#dest4_right").fadeOut("slow").css('background','transparent').fadeIn(100);
+	//	$("#dest4_left").fadeOut("slow").css('background','transparent').fadeIn(100);
+	//	$("#dest4_right").fadeOut("slow").css('background','transparent').fadeIn(100);
     	
     	//MODIFICO IL COSTO GLOBALE
-		costo_modSelezionato = costo_modSelezionato;
-		$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
-    };//chiusura primo if
+	//	costo_modSelezionato = costo_modSelezionato;
+	//	$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
+   // };//chiusura primo if
 };
 
 
@@ -266,20 +277,22 @@ function openShoeHorn() {
         $(this).animate({ width:'191', height:'83', left: '0', top: '0' }, 500 );
       })
 };
-
+     //select shipping cost.default value is domestic shipping
 function shoeHornYes() {
-	shoeHornText = "cedar shoe trees";
+	shoeHornText = "domestic shipping";
 	shoeHorn = parseInt(domesticshipping);
 	costoDef = costo_modSelezionato + deluxe + shoeHorn;
 	$("#dest1_costo").fadeOut().replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costoDef+' &#36;</p></div>').fadeIn();
-};
+    
+	};
 
 function shoeHornNo() {
-	shoeHornText = "no shoe trees";
+	shoeHornText = "international shipping";
 	shoeHorn = parseInt(internationalshipping);
 	costoDef = costo_modSelezionato + deluxe + shoeHorn;
 	$("#dest1_costo").fadeOut().replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costoDef+' &#36;</p></div>').fadeIn();	
-};
+
+	};
 
 
 
@@ -293,17 +306,17 @@ function openDeluxe() {
         $(this).animate({ width:'191', height:'83', left: '0', top: '0' }, 500 );
       })
 };
-
+    //for greeting card
 function deluxeNo() {
 	//MODIFICO IL COSTO COMPLESSIVO, ELIMINO L'EVENTUALE TEXTAREA CREATA, CREO IL RESOCONTO E PROCEDO
 	costo_modSelezionato = parseInt(costo_modSelezionato);
 	deluxe = parseInt(0);
-	deluxeText = "no deluxe pack";
+	deluxeText = "no greeting message";
 	costoDef = costo_modSelezionato + deluxe + shoeHorn;
 	$("#dest1_costo").fadeOut().replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costoDef+' &#36;</p></div>').fadeIn();
-	$("#deluxe_options").replaceWith('<div id="deluxe_options" style="position:absolute; top:0; left:416px; width:440px; height:126px; border-right:2px solid #9D815B;">&nbsp;</div>');
+	$("#deluxe_options").replaceWith('<div id="deluxe_options" style="position:absolute; top:-7px; left:416px; width:440px; height:126px; border-right:2px solid #9D815B;">&nbsp;</div>');
 	$("#dest4_monogram").fadeOut(10);
-	$("#fondo6").replaceWith('<div id="fondo6" class="fondo" style="font-size:12px;"><div style="text-align:left; width:449px; height:126px; border-right:2px solid #9D815B; position:absolute; left:0; bottom:0;"><b>STYLE</b>: '+ modSelezionato +' &ndash; <b>SIZE</b>: '+ tagliaSelezionata +'<br /><b>UPPER</b>: suede '+ colore_matSelezionato +'<br /><b>TRIMMING</b>: nappa '+ trimming +'<br /><b>TASSELS</b>: nappa '+ tassels +'<br /><b>MONOGRAMS</b>: '+ monogram_Data+'<br /><b>SHOE TREES</b>: '+shoeHornText+'<br /><b>YOUR MESSAGE</b>: '+deluxeText+'</div><div style="width:449px; height:126px; position:absolute; left:451px; bottom:0;"><div id="email_bespoke"><form id="form_bespoke" name="form_bespoke">PLEASE, INSERT YOUR EMAIL TO CONFIRM YOUR ORDER AND CHECK OUT<br />&nbsp;<br /><input type="text" id="email_buyers" name="email_buyers" value="" />&nbsp;<input type="checkbox" id="bespoke_privacy" name="bespoke_privacy" /> <a href="javascript:bespokePolicy();">Privacy</a> &nbsp;<input type="button" value="CHECKOUT" onclick="invioEmails();" /></form></div><div id="payment_bespoke"></div></div>');
+	$("#fondo6").replaceWith('<div id="fondo6" class="fondo" style="font-size:12px;"><div style="text-align:left; width:449px; height:150px; border-right:2px solid #9D815B; position:absolute; left:0; bottom:0;"><b>STYLE</b>: '+ modSelezionato +' &ndash; <b>SIZE</b>: '+ tagliaSelezionata +'<br /><b>UPPER</b>: suede '+ colore_matSelezionato +'<br /><b>TRIMMING</b>: nappa '+ trimming +'<br /><b>TASSELS</b>: nappa '+ tassels +'<br /><b>EMBLEM</b>: '+ monogram_Data1+'<br /><b>MONOGRAMS</b>: '+ monogram_Data+'<br /><b>Shipping</b>: '+shoeHornText+'<br /><b>YOUR MESSAGE</b>: '+deluxeText+'</div><div style="width:449px; height:126px; position:absolute; left:451px; bottom:0;"><div id="email_bespoke"><form id="form_bespoke" name="form_bespoke">PLEASE, INSERT YOUR EMAIL TO CONFIRM YOUR ORDER AND CHECK OUT<br />&nbsp;<br /><input type="text" id="email_buyers" name="email_buyers" value="" />&nbsp;<input type="checkbox" id="bespoke_privacy" name="bespoke_privacy" /> <a href="javascript:bespokePolicy();">Privacy</a> &nbsp;<input type="button" value="CHECKOUT" onclick="invioEmails();" /></form></div><div id="payment_bespoke"></div></div>');
 	$("#avanti").css('z-index','10');
 };
 
@@ -312,14 +325,14 @@ function deluxeYes() {
 	costo_modSelezionato = parseInt(costo_modSelezionato);
 	deluxe = parseInt(0);
 	costoDef = costo_modSelezionato + deluxe + shoeHorn;
-	$("#avanti").css('z-index','0');
+	
 	$("#dest1_costo").fadeOut().replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costoDef+' &#36;</p></div>').fadeIn();
 	$("#deluxe_options").replaceWith('<div id="deluxe_options" style="position:absolute; top:0; left:416px; width:440px; height:126px; border-right:2px solid #9D815B; font-size:12px; text-align:left;">Send your order as a gift and include a personalized greeting card<br />&nbsp;<br /><textarea rows="4" cols="50" onFocus="this.value=\'\';" onBlur="deluxeMessage(this);">Text of the greeting card</textarea> <input type="button" value="OK" style="background-color:#9D815B; color:#000000; margin:0 0 0 12px;" /><br />&nbsp;</div>');
 	$("#dest4_monogram").fadeOut(10);
 	$("#fondo6").replaceWith('<div id="fondo6" class="fondo" style="text-align:left">&nbsp;</div>');
 	
 };
-
+     //write greeting message
 function deluxeMessage(area) {
 	//CONTROLLO LA LUNGHEZZA MASSIMA DEL CONTENUTO TEXTAREA, CREO IL RESOCONTO E PROCEDO 
 	deluxeText = area.value;
@@ -327,7 +340,7 @@ function deluxeMessage(area) {
         alert("Enter a maximum of 120 characters");
         return false;
     } else {
-    	$("#fondo6").replaceWith('<div id="fondo6" class="fondo" style="font-size:12px;"><div style="text-align:left; width:449px; height:126px; border-right:2px solid #9D815B; position:absolute; left:0; bottom:0;"><b>STYLE</b>: '+ modSelezionato +' &ndash; <b>SIZE</b>: '+ tagliaSelezionata +'<br /><b>UPPER</b>: suede '+ colore_matSelezionato +'<br /><b>TRIMMING</b>: nappa '+ trimming +'<br /><b>TASSELS</b>: nappa '+ tassels +'<br /><b>MONOGRAMS</b>: '+ monogram_Data+'<br /><b>SHOE TREES</b>: '+shoeHornText+'<br /><b>YOUR MESSAGE</b>: '+deluxeText+'</div><div style="width:449px; height:126px; position:absolute; left:451px; bottom:0;"><div id="email_bespoke"><form id="form_bespoke" name="form_bespoke">PLEASE, INSERT YOUR EMAIL TO CONFIRM YOUR ORDER AND CHECK OUT<br />&nbsp;<br /><input type="text" id="email_buyers" name="email_buyers" value="" />&nbsp;<input type="checkbox" id="bespoke_privacy" name="bespoke_privacy" /> <a href="javascript:bespokePolicy();">Privacy</a> &nbsp;<input type="button" value="CHECKOUT" onclick="invioEmails();" /></form></div><div id="payment_bespoke">&nbsp;</div></div>');
+    	$("#fondo6").replaceWith('<div id="fondo6" class="fondo" style="font-size:12px;"><div style="text-align:left; width:449px; height:150px; border-right:2px solid #9D815B; position:absolute; left:0; bottom:0;"><b>STYLE</b>: '+ modSelezionato +' &ndash; <b>SIZE</b>: '+ tagliaSelezionata +'<br /><b>UPPER</b>: suede '+ colore_matSelezionato +'<br /><b>TRIMMING</b>: nappa '+ trimming +'<br /><b>TASSELS</b>: nappa '+ tassels +'<br /><b>EMBLEM</b>: '+ monogram_Data1+'<br /><b>MONOGRAMS</b>: '+ monogram_Data+'<br /><b>Shipping</b>: '+shoeHornText+'<br /><b>YOUR MESSAGE</b>: '+deluxeText+'</div><div style="width:449px; height:126px; position:absolute; left:451px; bottom:0;"><div id="email_bespoke"><form id="form_bespoke" name="form_bespoke">PLEASE, INSERT YOUR EMAIL TO CONFIRM YOUR ORDER AND CHECK OUT<br />&nbsp;<br /><input type="text" id="email_buyers" name="email_buyers" value="" />&nbsp;<input type="checkbox" id="bespoke_privacy" name="bespoke_privacy" /> <a href="javascript:bespokePolicy();">Privacy</a> &nbsp;<input type="button" value="CHECKOUT" onclick="invioEmails();" /></form></div><div id="payment_bespoke">&nbsp;</div></div>');
     	$("#avanti").css('z-index','10');
     } 	
 };
