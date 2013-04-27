@@ -161,7 +161,7 @@ body {
 		color:#9d815b;
 	}
 
-.footer{ width:110%; margin:0 0 0 -45px; background:#000; color:#fff;	}
+.footer{ width:110%; margin:50 0 0 -45px; background:#000; color:#fff;	}
 .footer_left{ width:25%; float:left; padding:60px 0 0 0}
 .footer_center{ width:50%; float:left;}
 .footer_right{ width:25%; float:left;}

@@ -1,4 +1,5 @@
 (function () {
+	
 	var input = document.getElementById("images"), 
 		formdata = false;
 
@@ -22,7 +23,7 @@
 	}
 	
  	input.addEventListener("change", function (evt) {
- 		document.getElementById("response").innerHTML = "Uploading . . ."
+ 		document.getElementById("debug").innerHTML = "Uploading . . ."
  		var i = 0, len = this.files.length, img, reader, file;
 	
 		for ( ; i < len; i++ ) {
@@ -52,7 +53,13 @@
 				success: function (res) {
 					document.getElementById("response").innerHTML = res; 
 					$("#main").fadeOut("fast");
+					$("#image-list1>img").fadeIn("slow");
+		            $("#image-list2>img").fadeIn("slow");
+					
 					monogram_Data1 = document.getElementById("response").innerHTML; 
+					costo_modSelezionato += emblemprice;
+					$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
+				    
 				}
 			});
 		}

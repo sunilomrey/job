@@ -1,0 +1,90 @@
+<DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+ <div id="mono">
+			<form id="monogram" name="monogram">
+				<!--<input type="checkbox" name="check_monogram" value="checked"> MONOGRAMS<br>
+			    &nbsp;<br>-->
+				<div>
+				  <select id="font">
+				  
+				     <option>ARIAL</option>
+					 <option>EDWARDIAN_SCRIPT</option>
+					 <option>TIMES_NEW_ROMAN</option>
+				  </select>
+				</div> &nbsp;<br>
+				<input style="text-align:center; width:40px" type="text" name="lettera_sx" size="1" value=" " onfocus="this.value='';" onblur="gestioneTextarea(this);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="text-align:center; width:40px" type="text" name="lettera_dx" size="1" value=" " onfocus="this.value='';" onblur="gestioneTextarea(this);"><br>
+				<script type="text/javascript"> function select04_monogram() {
+	//AZZERO LA VARIABILE TASSELS
+	tassels = "no tassels";
+	//SE CHECKBOX Ãˆ CHECKED, RECUPERO I CAMPI, SALVO I DATI, LI ESPONGO A SINISTRA E CAMBIO BACKGROUND E COSTO
+	//if (document.monogram.check_monogram.checked) { 
+		//RECUPERO I VALORI DEI VARI CAMPI
+		var lettera_dx = document.monogram.lettera_sx.value.toUpperCase();
+		var lettera_sx = document.monogram.lettera_dx.value.toUpperCase();
+		var selected_font = $("#font").children("option").filter(":selected").text();
+		
+		var color_monogram;
+		
+		/*var rf = document.monogram.selected_font;
+		  for(var i=0; i<rf.length; i++) {
+		    if(rf[i].checked) {
+		      selected_font = rf[i].value;
+		      break;
+		  }
+		}*/
+		
+		var rr = document.monogram.color_monogram;
+		  for(var i=0; i<rr.length; i++) {
+		    if(rr[i].checked) {
+		      color_monogram = rr[i].value;
+		      break;
+		  }
+		}
+		
+		//LI CONTROLLO: SE MANCA ANCHE UN SOLO CAMPO LANCIO ALERT
+		if (lettera_sx == "" || lettera_dx == "" || color_monogram == undefined || selected_font == undefined) {
+			alert("Please, all monogram's fields are required")
+		} else {
+		    costo_modSelezionato = originalshoeprice;
+			//ALTRIMENTI MODIFICO LA VARIABILE monogram_Data
+			monogram_Data = "left: '"+lettera_dx+"'; right: '"+lettera_sx+"'; font: '"+selected_font+"'; color: '"+color_monogram+"'.";
+			//CREO IL RESOCONTO A SINISTRA
+			$("#dest4_monogram_description").replaceWith('<div id="dest4_monogram_description" style="text-align:right"><div id="dest4_monogram_description_left" style="color:#9D815B"> MONOGRAMS: '+lettera_dx+'&nbsp;&nbsp;'+lettera_sx+'&nbsp;&nbsp;'+selected_font+'</div><div id="dest4_monogram_description_right" style="border:2px solid #9D815B;background-color:#000000;"><img src="imgs/bespoke/basi/'+color_monogram+'.jpg" alt='+color_monogram+'" /></div></div>');
+			
+			//MODIFICO IL BACKGROUND
+			//$("#dest4_left").fadeOut(100).css('background','url(imgs/bespoke/monograms/'+selected_font+'/'+color_monogram+'/'+lettera_sx+'.png) left no-repeat').fadeIn(100);
+			//$("#dest4_right").fadeOut(100).css('background','url(imgs/bespoke/monograms/'+selected_font+'/'+color_monogram+'/'+lettera_dx+'.png) left no-repeat').fadeIn(100);
+			$("#dest4_left").fadeOut(100)
+			$("#dest4_right").fadeOut(100)
+			$("#main").fadeOut("slow");
+			$("#image-list1>img").fadeOut("slow");
+		    $("#image-list2>img").fadeOut("slow");
+			//MODIFICO IL COSTO GLOBALE
+			monogram_Data1 = "no emblem";
+			costo_modSelezionato += monogramprice;
+			$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
+		}; //chiusura if annidato
+				</script>
+				<!--fieldset>
+			        <div style="position:absolute; left:50px; width:66px;">GOTHIC<br /><input type="radio" name="selected_font" value="GOTHIC"/></div>
+			        <div style="position:absolute; right:10px; width:66px;">SERIF<br /><input type="radio" name="selected_font" value="SERIF"/></div>
+			    </fieldset><br /-->
+			    &nbsp;<br>
+				<fieldset>
+			        <div style="position:absolute; left:15px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #FFCB53;">&nbsp;<br><input type="radio" name="color_monogram" value="YELLOW"></div>
+			        <div style="position:absolute; left:60px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #000000;">&nbsp;<br><input type="radio" name="color_monogram" value="BLACK"></div>
+			        <div style="position:absolute; left:105px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #c30000;">&nbsp;<br><input type="radio" name="color_monogram" value="RED"></div>
+			        <div style="position:absolute; left:150px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #000066;">&nbsp;<br><input type="radio" name="color_monogram" value="BLUE"></div><br>&nbsp;<br>&nbsp;<br>
+			        <div style="position:absolute; left:60px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #005100;">&nbsp;<br><input type="radio" name="color_monogram" value="GREEN"></div>
+			        <div style="position:absolute; left:105px; width:34px; background:url('imgs/bespoke/angle_monograms.png') top left no-repeat #72009c;">&nbsp;<br><input type="radio" name="color_monogram" value="PURPLE"></div>
+			    </fieldset>
+				&nbsp;<br>
+				&nbsp;<br>
+				&nbsp;<br>
+				<input type="button" value="APPLY!" onclick="select04_monogram();"/> 
+			</form></div> 
+</body>
+</html>

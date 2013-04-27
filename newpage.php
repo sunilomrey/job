@@ -64,7 +64,7 @@ var email_buyer;
 </head>
 
 <body>
-   
+   <div id="debug"></div>
 
 	<div id="work_table" class="resize">
 	<script type="text/javascript"> // resize work_table for smaller screens
@@ -191,7 +191,7 @@ var email_buyer;
 		   <option value="mong">Monogram</option>
 		   <option value="emb">Emblem</option>
 		   </select> -->
-
+         
   <div id="mono">
 			<form id="monogram" name="monogram">
 				<!--<input type="checkbox" name="check_monogram" value="checked"> MONOGRAMS<br>
@@ -224,16 +224,16 @@ var email_buyer;
 				<input type="button" value="APPLY!" onclick="select04_monogram();"/> 
 			</form></div> 
 		 </div>	
-			<div id="emblem1">	
-	<div id="monogram" class="mono2" name="image">
+		<!--<div id="emblem1">	-->
+	     <!--<div id="monogram" class="mono2" name="image">-->
           <div id="main">
-		<input type="checkbox" name="check_monogram" value="checked"> Your Emblem<br>&nbsp;<br>
-		<form method="post" enctype="multipart/form-data"  action="upload.php">
-    		<input type="file" name="images" id="images" multiple />
-    		<button type="submit" id="btn">Upload Files!</button>
-    	</form>
-</div>
-  	    <div id="response" style="color:white"></div>
+		     <input type="checkbox" name="check_monogram" value="checked"> Your Emblem<br>&nbsp;<br>
+		     <form method="post" enctype="multipart/form-data"  action="upload.php" id="formimage">
+    		     <input type="file" name="images" id="images" multiple />
+    		     <button type="submit" id="btn">Upload Files!</button>
+    	     </form>
+           </div>
+  	     <div id="response" style="color:white"></div>
 	    	<div id="image-list1">
 			
 		    </div>
@@ -241,16 +241,13 @@ var email_buyer;
 			
 		    </div>
 			
-	    </div></div>
+	      <!--</div>-->
+		<!--</div>-->
 	
          <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
          <script src="upload.js"></script>
 
                
-				
-	
-				
-		
 		<div id="dest4_monogram_description">&nbsp;</div>
 		<div id="bespoke_policy">
 			<h1>&nbsp;<br>PRIVACY POLICY</h1><br>
@@ -379,7 +376,7 @@ var email_buyer;
     </div>
 
 		<div class="spacer">&nbsp;</div>
-<div class="footer">
+ <div class="footer">
     	<div class="footer_left">
         	<a href="mailto:info@josephsfootwear.com">info@josephsfootwear.com</a>
         </div>

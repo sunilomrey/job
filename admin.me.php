@@ -26,19 +26,19 @@
 	 &nbsp;<br>&nbsp;<br>
    
          <div style="float:left; padding-right:120px; margin-left:30px;"><h3>Emblem Price</h3></div>
-		 <div style="padding-top:25px; paddng-left:25px"><input type="text" name="price6" id="price12.1"></div>
+		 <div style="padding-top:25px; paddng-left:25px"><input type="text" name="price4" id="price12.1"></div>
 	 &nbsp;<br>&nbsp;<br>
    
 	     <div style="float:left; padding-right:80px; margin-left:30px;"><h3>Domenstic Shipping</h3></div>
-		 <div style="padding-top:25px; paddng-left:25px"><input type="text" name="price4" id="price13"></div>
+		 <div style="padding-top:25px; paddng-left:25px"><input type="text" name="price5" id="price13"></div>
      	 &nbsp;<br>&nbsp;<br>
 
 	     <div style="float:left; padding-right:66px; margin-left:30px;"><h3>International Shipping</h3></div>
-		 <div style="padding-top:25px; paddng-left:25px"><input type="text" name="price5" id="price14"></div>
+		 <div style="padding-top:25px; paddng-left:25px"><input type="text" name="price6" id="price14"></div>
 	 
 	 <div style="width:185px; padding-right:30px; float:left; padding-top:15px; padding-left:16px;" class="textgrey">&nbsp;</div>
                 <div style="width:235px; float:left; padding-top:50px; height:25px; padding-bottom:20px; margin-left:-100px"><input name="Submit" type="submit" value="submit" style="background:#59903A;color:white"></div>  
-				<div style="float:right; margin-top:-520px; margin-right:170px;"><h2>Present Prices</h2></div>
+				<div style="float:right; margin-top:-530px; margin-right:180px;"><h2>Present Prices</h2></div>
 				
 				
 				<div style="float:right; margin-top:-450px; margin-right:100px; width:200px; height:200px">
@@ -57,9 +57,9 @@ echo "<table border='1'>
 <th>price1</th>
 <th>price2</th>
 <th>price3</th>
-<th>price6</th>
 <th>price4</th>
 <th>price5</th>
+<th>price6</th>
 </tr>";
 
 $row = mysqli_fetch_array($result);

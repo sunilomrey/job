@@ -9,7 +9,7 @@ if (mysqli_connect_errno($con))
 //define sql query
 $sql = "TRUNCATE TABLE admin";
 mysqli_query($con,$sql);
-$sql="insert into admin values('$_POST[price1]', '$_POST[price2]', '$_POST[price3]', '$_POST[price6]', '$_POST[price4]', '$_POST[price5]')";
+$sql="insert into admin values('$_POST[price1]', '$_POST[price2]', '$_POST[price3]', '$_POST[price4]', '$_POST[price5]', '$_POST[price6]')";
 //execute sql query using connection string
 if (!mysqli_query($con,$sql))
   {

@@ -30,7 +30,6 @@ $(document).ready(function() {
 			$("#measurement_chart").fadeOut("slow");
 		}
 	);
-   
   
 });
 
@@ -79,8 +78,10 @@ function select02(taglia) {
 	//RECUPERO IL VALORE DELLA TAGLIA SELEZIONATA, AGGIORNO IL RESOCONTO A SINISTRA, RICHIAMO IL COSTO E PROCEDO
 	tagliaSelezionata = taglia;
 	$("#dest2").replaceWith('<div id="dest2" style="border:2px solid #9D815B;"><p>'+taglia+'</p></div><div id="dest2_descrizione" style="color:#9D815B">SIZE</div>');
-    $("#your_shoes").fadeIn(10);
-	$("#your_shoes_right").fadeIn(10);
+    $("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div><div id="dest1_descrizione" style="color:#9D815B">PRICE</div>');
+	$("#your_shoes").replaceWith('<div id="your_shoes">YOUR SHOES:</div>');
+
+	$("#main").fadeOut("slow");
 	$("#avanti").css('z-index','10');  
 };
 
@@ -110,6 +111,7 @@ function select03_bis(colore) {
 	$("#dest1").fadeOut(100).css('background','url(imgs/bespoke/'+matSelezionato+'/'+colore_matSelezionato+'.png) repeat scroll 0 0 transparent').fadeIn(100); //DA REINSERIRE CON BACKGROUND IMMAGINE CORRETTO
 	$("#dest3_colore").replaceWith('<div id="dest3_colore" style="border:2px solid #9D815B;background-color:#000000;"><img src="imgs/bespoke/basi/40x126_'+colore_matSelezionato+'.png" alt="'+colore_matSelezionato+'" style="margin-left:-5px; margin-top:-5px;" /></div>');
     $("#avanti").css('z-index','10');
+	
 };
 
 
@@ -130,26 +132,34 @@ function select04_tassels(tassellsColore) {
 		$("#dest4_bis").fadeOut(100).css('background','transparent').fadeIn(100);
 		$("#dest4_monogram").fadeIn("slow");
 		$("#dest4_tassels").replaceWith('<div id="dest4_tassels" style="text-align:right"><div id="dest4_tassels_left" style="color:#9D815B">TASSELS</div><div id="dest4_tassels_right" style="border:2px solid #9D815B;background-color:#000000;"><img src="imgs/bespoke/'+tassels+'.jpg" alt='+tassels+'" /></div></div>');
-		costo_modSelezionato = costo_modSelezionato;
-		$("#emblem1").fadeOut("slow");
+		costo_modSelezionato = originalshoeprice;
+		
+		$("#main").fadeOut("slow");
+		$("#image-list1 > img").fadeOut("slow");
+		$("#image-list2 > img").fadeOut("slow");
 		$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
 	} else { 
+		$("#debug").fadeOut("slow");
 	    costo_modSelezionato = originalshoeprice;
 		//ALTRIMENTI NASCONDO IL PANNELLO "MONOGRAM" E CANCELLO I MONOGRAMMI, APPLICO IL BACKGROUND CON IL TASSELLO SELEZIONATO E MODIFICO RESOCONTO A SINISTRA E COSTO
-		$("#emblem1").fadeOut("slow");
+		$("#main").fadeOut("slow");
 		$("#dest4_monogram").fadeOut("slow");
 		$("#dest4_monogram_description").fadeOut("slow");
 		$("#dest4_left").fadeOut("slow").css('background','transparent').fadeIn(100);
 		$("#dest4_right").fadeOut("slow").css('background','transparent').fadeIn(100);
 		$("#dest4_monogram_description").replaceWith('<div id="dest4_monogram_description">&nbsp;</div>');
 		$("#dest4_bis").fadeOut(100).css('background','url(imgs/bespoke/TASSELS/'+tassels+'.png) repeat scroll 0 0 transparent').fadeIn(100);
-		$("#emblem1").fadeOut("slow");
+		$("#main").fadeOut("slow");
+		$("#image-list1>img").fadeOut("slow");
+		$("#image-list2>img").fadeOut("slow");
 		document.monogram.lettera_sx.value = "";
 		document.monogram.lettera_dx.value = "";
 		monogram_Data = "no monograms";
+		monogram_Data1 = "no emblem";
 		$("#dest4_tassels").replaceWith('<div id="dest4_tassels" style="text-align:right"><div id="dest4_tassels_left" style="color:#9D815B">TASSELS</div><div id="dest4_tassels_right" style="border:2px solid #9D815B;background-color:#000000;"><img src="imgs/bespoke/basi/40x50_'+tassels+'.png" alt='+tassels+'" style="margin-left:-5px; margin-top:-5px;" /></div></div>');
 		costo_modSelezionato = costo_modSelezionato + tasselsprice;
 		$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
+	
 	}
 };
      //selects the emblem
@@ -157,21 +167,28 @@ function select04_etassels(tassellsColore) {
 	tassels = tassellsColore;
 	//SE IL TASSEL NON VIENE SELEZIONATO, MOSTRO IL PANNELLO "MONOGRAM" E MODIFICO RESOCONTO A SINISTRA E COSTO
 	if (tassels == "no tassels") {
-	costo_modSelezionato = originalshoeprice;
+     	document.forms["formimage"].reset();
 		$("#dest4_bis").fadeOut(100).css('background','transparent').fadeIn(100);
-		$("#emblem1").fadeIn("slow");
+		//$("#emblem1").fadeIn("slow");
 		$("#dest4_monogram").fadeOut("slow");
 		$("#dest4_tassels").replaceWith('<div id="dest4_tassels" style="text-align:right"><div id="dest4_tassels_left" style="color:#9D815B">TASSELS</div><div id="dest4_tassels_right" style="border:2px solid #9D815B;background-color:#000000;"><img src="imgs/bespoke/'+tassels+'.jpg" alt='+tassels+'" /></div></div>');
-		costo_modSelezionato += emblemprice;
-		$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
+		monogram_Data = "no monograms";
+		$("#main").fadeIn("fast");
+		$("#image-list1").fadeIn("slow");
+		$("#image-list2").fadeIn("slow");
         $("#dest4_monogram_description").fadeOut("slow");
 		$("#dest4_left").fadeOut(100).css('background','url(file_path) left no-repeat').fadeIn(100);
-		$("#dest4_right").fadeOut(100).css('background','url(file_path) left no-repeat').fadeIn(100);	
+		$("#dest4_right").fadeOut(100).css('background','url(file_path) left no-repeat').fadeIn(100);
+        costo_modSelezionato = originalshoeprice;
+		$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');		
 	
 	} else { 
+		document.forms["formimage"].reset();
 	    costo_modSelezionato = originalshoeprice;
 		//ALTRIMENTI NASCONDO IL PANNELLO "MONOGRAM" E CANCELLO I MONOGRAMMI, APPLICO IL BACKGROUND CON IL TASSELLO SELEZIONATO E MODIFICO RESOCONTO A SINISTRA E COSTO
-		$("#emblem").fadeOut("slow");
+		$("#main").fadeOut("slow");
+		$("#image-list1>img").fadeOut("slow");
+		$("#image-list2>img").fadeOut("slow");
 		$("#dest4_monogram").fadeOut("slow");
 		$("#dest4_monogram_description").fadeOut("slow");
 		$("#dest4_left").fadeOut("slow").css('background','transparent').fadeIn(100);
@@ -180,6 +197,8 @@ function select04_etassels(tassellsColore) {
 		$("#dest4_bis").fadeOut(100).css('background','url(imgs/bespoke/TASSELS/'+tassels+'.png) repeat scroll 0 0 transparent').fadeIn(100);
 		document.monogram.lettera_sx.value = "";
 		document.monogram.lettera_dx.value = "";
+		monogram_Data = "no monograms";
+		monogram_Data1 = "no emblem";
 		$("#dest4_tassels").replaceWith('<div id="dest4_tassels" style="text-align:right"><div id="dest4_tassels_left" style="color:#9D815B">TASSELS</div><div id="dest4_tassels_right" style="border:2px solid #9D815B;background-color:#000000;"><img src="imgs/bespoke/basi/40x50_'+tassels+'.png" alt='+tassels+'" style="margin-left:-5px; margin-top:-5px;" /></div></div>');
 		costo_modSelezionato += emblemprice;
 		$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
@@ -227,8 +246,11 @@ function select04_monogram() {
 			//MODIFICO IL BACKGROUND
 			$("#dest4_left").fadeOut(100).css('background','url(imgs/bespoke/monograms/'+selected_font+'/'+color_monogram+'/'+lettera_sx+'.png) left no-repeat').fadeIn(100);
 			$("#dest4_right").fadeOut(100).css('background','url(imgs/bespoke/monograms/'+selected_font+'/'+color_monogram+'/'+lettera_dx+'.png) left no-repeat').fadeIn(100);
-			$("#emblem1").fadeOut("slow");
+			$("#main").fadeOut("slow");
+			$("#image-list1>img").fadeOut("slow");
+		    $("#image-list2>img").fadeOut("slow");
 			//MODIFICO IL COSTO GLOBALE
+			monogram_Data1 = "no emblem";
 			costo_modSelezionato += monogramprice;
 			$("#dest1_costo").replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costo_modSelezionato+' &#36;</p></div>');
 		}; //chiusura if annidato
@@ -327,7 +349,7 @@ function deluxeYes() {
 	costoDef = costo_modSelezionato + deluxe + shoeHorn;
 	
 	$("#dest1_costo").fadeOut().replaceWith('<div id="dest1_costo" style="border:2px solid #9D815B;background-color:#000000;"><p>'+costoDef+' &#36;</p></div>').fadeIn();
-	$("#deluxe_options").replaceWith('<div id="deluxe_options" style="position:absolute; top:0; left:416px; width:440px; height:126px; border-right:2px solid #9D815B; font-size:12px; text-align:left;">Send your order as a gift and include a personalized greeting card<br />&nbsp;<br /><textarea rows="4" cols="50" onFocus="this.value=\'\';" onBlur="deluxeMessage(this);">Text of the greeting card</textarea> <input type="button" value="OK" style="background-color:#9D815B; color:#000000; margin:0 0 0 12px;" /><br />&nbsp;</div>');
+	$("#deluxe_options").replaceWith('<div id="deluxe_options" style="position:absolute; top:-7px; left:416px; width:440px; height:126px; border-right:2px solid #9D815B; font-size:12px; text-align:left;">Send your order as a gift and include a personalized greeting card<br />&nbsp;<br /><textarea rows="4" cols="50" onFocus="this.value=\'\';" onBlur="deluxeMessage(this);">Text of the greeting card</textarea> <input type="button" value="OK" style="background-color:#9D815B; color:#000000; margin:0 0 0 12px;" /><br />&nbsp;</div>');
 	$("#dest4_monogram").fadeOut(10);
 	$("#fondo6").replaceWith('<div id="fondo6" class="fondo" style="text-align:left">&nbsp;</div>');
 	
